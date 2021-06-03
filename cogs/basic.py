@@ -15,6 +15,8 @@ class Basic(commands.Cog):
     @commands.command()
     async def signora(self,ctx):
         await ctx.send('Signora will come home',file = discord.File('./data/images/signora.png'))
-
+    @commands.command()
+    async def kickme(self,ctx):
+        await ctx.send(f'Signora kicked {ctx.message.author.mention}',file=discord.File('./data/gif/kick.gif'))
 def setup(bot):
     bot.add_cog(Basic(bot))
