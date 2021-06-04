@@ -26,7 +26,7 @@ class Build(commands.Cog):
                 sr_link=sr_link+i["sr_link"]
     
 
-        embed=discord.Embed(title=f"Heres your build for {char_name}",description=f"You find a video explaining the best build [here]({yt_link}) for more information about the character,You can join the subreddit [here]({sr_link})",colour=discord.Colour.blue())
+        embed=discord.Embed(title=f"Heres your build for {char_name.upper()}",description=f"You find a video explaining the best build [here]({yt_link}) for more information about the character,You can join the subreddit [here]({sr_link})",colour=discord.Colour.blue())
         embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar_url)
         embed.set_footer(text="Build requested by: {}".format(ctx.author.display_name))
         await ctx.send(embed=embed)
