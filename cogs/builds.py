@@ -10,7 +10,7 @@ class Build(commands.Cog):
     def __init__(self,bot):
         self.bot = bot
     
-    @commands.command(brief='Give the build information of the charceter, Please write only one character at a single time ')
+    @commands.command(brief='Gives the build for the character,Please write only one character at a single time ')
     async def build(self,ctx,*args):
         b = open('./data/builds.json')
         data = json.load(b)
@@ -21,7 +21,7 @@ class Build(commands.Cog):
             char_name=char_name+name
 
         for i in data:
-            if i['name'] == char_name:
+            if i['name'] == char_name.lower():
                 yt_link=yt_link+i["yt_vid"]
                 sr_link=sr_link+i["sr_link"]
     
