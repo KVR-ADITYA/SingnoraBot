@@ -25,6 +25,6 @@ class Basic(commands.Cog):
         data = json.load(f)
         i=randint(0,len(data)-1)
         await ctx.send(data[i]['submission'])
-
+    
 def setup(bot):
     bot.add_cog(Basic(bot))
