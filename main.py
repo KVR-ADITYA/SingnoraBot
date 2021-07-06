@@ -13,7 +13,10 @@ def main():
         with open('./BOT_TOKEN.token','r') as token:
             BOT_TOKEN = token.read()
 
-    bot = commands.Bot(command_prefix = commands.when_mentioned_or("$"))
+    intents = discord.Intents().all()
+    client = discord.Client(intents=intents)
+    bot = commands.Bot(command_prefix = commands.when_mentioned_or("$"),intents=intents)
+
 
     @bot.event
     async def on_ready():

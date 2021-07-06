@@ -1,4 +1,9 @@
 [
+   {
+    "name": "kazuha",
+    "yt_vid":"https://www.youtube.com/watch?v=kkxoO3ss2EE",
+    "sr_link":"https://www.reddit.com/r/KazuhaMains/"
+   },
     {
       "name": "xiao",
       "yt_vid":"https://youtu.be/Jy3UNLzJplw",
@@ -161,5 +166,5 @@
     }
 
 ]
-    }
-]
+    
+
