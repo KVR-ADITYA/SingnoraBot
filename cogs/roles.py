@@ -11,7 +11,7 @@ class Roles(commands.Cog):
         self.bot = bot
     #ctx.send
 
-    @commands.command()
+    @commands.command(brief="Change role using `$changerole <role_name>`")
     async def changerole(self, ctx, *args):
         member = ctx.message.author
         if len(args) == 1:
@@ -34,7 +34,7 @@ class Roles(commands.Cog):
             await ctx.send('Enter one role')
     
     
-    @commands.command()
+    @commands.command(brief="Remomve role using `$rmrole <role_name>`")
     async def rmrole(self, ctx, *args):
         member = ctx.message.author
         if len(args) == 1:
