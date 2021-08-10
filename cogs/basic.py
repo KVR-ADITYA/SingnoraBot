@@ -25,6 +25,7 @@ class Basic(commands.Cog):
     async def boobasword(self,ctx):   
         await ctx.send(f'{ctx.message.author.mention} get booba sword',file=discord.File('./data/gif/booba.gif'))
     
+    @commands.command(brief="get roasted by signora you simp ")
     async def roastme(self,ctx):
         f = open('./data/roasts.json')
         data = json.load(f)
