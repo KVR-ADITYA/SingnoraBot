@@ -21,6 +21,16 @@ class Basic(commands.Cog):
     async def kickme(self,ctx):   
         await ctx.send(f'Signora kicked {ctx.message.author.mention}',file=discord.File('./data/gif/kick.gif'))
 
+    @commands.command(brief="yes yes yes for others")
+    async def kick(self,ctx,user : discord.User):
+        id=user.id
+        await ctx.send('Signora kicked' + ' ' + user.mention ,file=discord.File('./data/gif/kick.gif'))
+
+    @commands.command(brief="send others to horny jail ")
+    async def bonk(self,ctx,user : discord.User):
+        id=user.id
+        await ctx.send('Signora bonk ' + ' ' + user.mention ,file=discord.File('./data/gif/zhongli-bonk.gif'))
+        
     @commands.command(brief="mihoyo is trapping and you know it, and still fall for it")
     async def boobasword(self,ctx):   
         await ctx.send(f'{ctx.message.author.mention} get booba sword',file=discord.File('./data/gif/booba.gif'))
