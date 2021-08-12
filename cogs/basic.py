@@ -30,12 +30,12 @@ class Basic(commands.Cog):
     async def bonk(self,ctx,user : discord.User):
         id=user.id
         await ctx.send('Signora bonk ' + ' ' + user.mention ,file=discord.File('./data/gif/zhongli-bonk.gif'))
-        
+
     @commands.command(brief="mihoyo is trapping and you know it, and still fall for it")
     async def boobasword(self,ctx):   
         await ctx.send(f'{ctx.message.author.mention} get booba sword',file=discord.File('./data/gif/booba.gif'))
     
-    @commands.command(brief="get roasted by signora you simp ")
+    @commands.command(brief="seriously something is wrong with you, get some help")
     async def roastme(self,ctx):
         f = open('./data/roasts.json')
         data = json.load(f)
