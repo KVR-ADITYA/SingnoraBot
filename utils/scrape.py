@@ -1,10 +1,7 @@
 from selenium import webdriver
-from webdriver_manager.firefox import GeckoDriverManager
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
-import time
-import os
 
 def set_viewport_size(driver, width, height):
     window_size = driver.execute_script("""
@@ -13,7 +10,26 @@ def set_viewport_size(driver, width, height):
         """, width, height)
     driver.set_window_size(*window_size)
 
-def scrollpage(driver, y):
+class scroll_class:
+    '''
+    custom class to use __call__ function for explicit webdriver wait until page scrolls to give y value
+    '''
+    def __init__(self,y):
+        self.y = y
+    def __call__(self, driver):
+        posA = 0
+        posB = 1
+        scrollPos = 0
+        while posA < self.y+600:
+            posA = driver.execute_script("return window.scrollY;")
+            scrollPos += 300
+            driver.execute_script("window.scrollTo(0, {});".format(scrollPos))
+            posB = driver.execute_script("return window.scrollY;")
+
+        #driver.execute_script("window.scrollTo(0, 0);")# driver.execute_script("window.scrollTo(0,0)")
+        return True
+
+def scrollpage( driver,y):
     posA = 0
     posB = 1
     scrollPos = 0
@@ -24,15 +40,12 @@ def scrollpage(driver, y):
         posB = driver.execute_script("return window.scrollY;")
 
     #driver.execute_script("window.scrollTo(0, 0);")# driver.execute_script("window.scrollTo(0,0)")
-
+    return True
 
 
 def get_as_infographic(char_name):
-    #save web driver manager's webdriver exectuables locally by overriding default location setting
-    #os.environ['WDM_LOCAL'] = '1'
-    #initiate selenium chrome webdriver driver
-    #driver = webdriver.Chrome(ChromeDriverManager().install())
 
+    #initiate selenium chrome webdriver driver
     chrome_options = Options()
     chrome_options.add_argument('--headless')
     driver = webdriver.Chrome(options=chrome_options)
@@ -56,15 +69,17 @@ def get_as_infographic(char_name):
                 try:
                     element = driver.find_element_by_id("live_data")
                     skilldmgwrappers = element.find_element_by_class_name("skilldmgwrapper")
-                    table = skilldmgwrappers.find_element_by_class_name("add_stat_table")
+                    #table = skilldmgwrappers.find_element_by_class_name("add_stat_table")
                 except NoSuchElementException as exception:
                     print("live_data Table not found")
                 else:
                     print("table found")
-                    rect = table.rect
-                    set_viewport_size(driver, rect['width'] + 600, rect['height'] + 600)
-                    scrollpage(driver,rect['y'])
-                    time.sleep(3)
+                    rect = skilldmgwrappers.rect
+                    set_viewport_size(driver, rect['width'] + 1200, rect['height'] + 1200)
+                    #scrollpage(driver,rect['y'])
+                    #time.sleep(3)
+                    wait = WebDriverWait(driver, timeout=3)
+                    wait.until(scroll_class(rect['y']))
                     png = skilldmgwrappers.screenshot_as_png
                     driver.close()
                     return png
