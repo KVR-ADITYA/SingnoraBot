@@ -29,6 +29,7 @@ class scroll_class:
         #driver.execute_script("window.scrollTo(0, 0);")# driver.execute_script("window.scrollTo(0,0)")
         return True
 
+#use this with time.sleep if webdriver wait is not working properly
 def scrollpage( driver,y):
     posA = 0
     posB = 1
