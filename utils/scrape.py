@@ -28,9 +28,9 @@ def scrollpage(driver, y):
 
 def get_as_infographic(char_name):
     #save web driver manager's webdriver exectuables locally by overriding default location setting
-    os.environ['WDM_LOCAL'] = '1'
+    #os.environ['WDM_LOCAL'] = '1'
     #initiate selenium chrome webdriver driver
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome()
     #get the page
     driver.get("https://genshin.honeyhunterworld.com/db/char/characters/?lang=EN")
     chars = driver.find_elements_by_class_name("char_sea_cont")
