@@ -46,5 +46,9 @@ class Basic(commands.Cog):
     async def drink(self, ctx):
         await ctx.send(f'{ctx.message.author.mention} drink with Venti',file=discord.File('./data/gif/ventiDrink.gif'))
 
+    @commands.command(brief="raiden bullying dasyud")
+    async def bully(self, ctx):
+        await ctx.send(f'<@${435750497316765697}> get bullied',file=discord.File('./data/gif/raidenRide.gif'))
+
 def setup(bot):
     bot.add_cog(Basic(bot))
