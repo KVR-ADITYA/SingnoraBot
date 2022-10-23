@@ -42,5 +42,9 @@ class Basic(commands.Cog):
         i=randint(0,len(data)-1)
         await ctx.send(data[i]['submission'])
 
+    @commands.command(brief="barsibato drinking")
+    async def drink(self, ctx):
+        await ctx.send(f'{ctx.message.author.mention} drink with Venti',file=discord.File('./data/gif/ventiDrink.gif'))
+
 def setup(bot):
     bot.add_cog(Basic(bot))
