@@ -15,7 +15,7 @@ load_dotenv()
 
 OCR_API_KEY = os.getenv('OCR_API_KEY')
 if OCR_API_KEY == None:
-	with open('./OCR_API_KEY.token','r') as token:
+	with open('./tokens/OCR_API_KEY.token','r') as token:
 		OCR_API_KEY = token.read()
 
 reg = re.compile(r'\d+(?:[.,]\d+)?')

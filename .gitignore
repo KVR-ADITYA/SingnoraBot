@@ -1,6 +1,10 @@
+# Build files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Secret Directories and files
+token/
 *.token
 
 # Environments

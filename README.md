@@ -51,3 +51,4 @@ run: |
 The above code are the main set of instructions that are to be run by the bot.
 First the `BOT_TOKEN`, the repo secret(provided by discord), has to be loaded as an enviroment variable so that the python program can have access to it.
 The `roasts.json` is not mine. Credits to: [Nydauron](https://raw.githubusercontent.com/Nydauron/CharBot/master/roasts.json)
+The artifact rater in the `rater.py` and the translations in `translations.py` are edits to the og artifact rater bot by [shrubin](https://github.com/shrubin/Genshin-Artifact-Rater), credits to him.
