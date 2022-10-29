@@ -48,7 +48,8 @@ class Basic(commands.Cog):
 
     @commands.command(brief="raiden bullying dasyud")
     async def bully(self, ctx):
-        await ctx.send(f'<@${435750497316765697}> get bullied',file=discord.File('./data/gif/raidenRide.gif'))
+        dasyud_id = '435750497316765697'
+        await ctx.send(f'<@{dasyud_id}> get bullied',file=discord.File('./data/gif/raidenRide.gif'))
 
 def setup(bot):
     bot.add_cog(Basic(bot))
